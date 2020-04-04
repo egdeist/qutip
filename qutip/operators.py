@@ -748,10 +748,12 @@ def commutator(A, B, kind="normal"):
         raise TypeError("Unknown commutator kind '%s'" % kind)
 
 
-def qutrit_ops():
+def qutrit_ops(*args):
     """
     Operators for a three level system (qutrit).
-
+    args : str
+        Which operator to return '11','22','33','13','31','12','21','23','32'.
+        If no args given, then output is ['11','22','33','12','23','31']
     Returns
     -------
     opers: array
@@ -765,10 +767,37 @@ def qutrit_ops():
     sig22 = two * two.dag()
     sig33 = three * three.dag()
     sig12 = one * two.dag()
+    sig21 = two * one.dag()
     sig23 = two * three.dag()
+    sig32 = three * two.dag()
+    sig13 = one * three.dag()
     sig31 = three * one.dag()
-    return np.array([sig11, sig22, sig33, sig12, sig23, sig31],
+
+    if not args:
+        return np.array([sig11, sig22, sig33, sig12, sig23, sig31],
                     dtype=object)
+
+    if args[0] == '11':
+        op = sig11
+    elif args[0] == '22':
+        op = sig22
+    elif args[0] == '33':
+        op = sig33
+    elif args[0] == '13':
+        op = sig13
+    elif args[0] == '31':
+        op = sig31
+    elif args[0] == '12':
+        op = sig12
+    elif args[0] == '21':
+        op = sig21
+    elif args[0] == '23':
+        op = sig23
+    elif args[0] == '32':
+        op = sig32
+    else:
+        raise TypeError('Invalid type')
+    return op
 
 
 def qdiags(diagonals, offsets, dims=None, shape=None):

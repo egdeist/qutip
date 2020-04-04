@@ -273,7 +273,7 @@ class StochasticSolverOptions:
         options.store_states are used.
 
     map_func: function
-        A map function or managing the calls to single-trajactory solvers.
+        A map function or managing the calls to single-trajectory solvers.
 
     map_kwargs: dictionary
         Optional keyword arguments to the map_func function function.
@@ -571,7 +571,7 @@ def smesolve(H, rho0, times, c_ops=[], sc_ops=[], e_ops=[],
     """
     if "method" in kwargs and kwargs["method"] == "photocurrent":
         print("stochastic solver with photocurrent method has been moved to "
-              "it's own function: photocurrent_mesolve")
+              "its own function: photocurrent_mesolve")
         return photocurrent_mesolve(H, rho0, times, c_ops=c_ops, sc_ops=sc_ops,
                                    e_ops=e_ops, _safe_mode=_safe_mode,
                                    args=args, **kwargs)
@@ -888,7 +888,7 @@ def photocurrent_mesolve(H, rho0, times, c_ops=[], sc_ops=[], e_ops=[],
     sc_ops : list of :class:`qutip.Qobj`, or time dependent Qobjs.
         List of stochastic collapse operators. Each stochastic collapse
         operator will give a deterministic and stochastic contribution
-        to the eqaution of motion according to how the d1 and d2 functions
+        to the equation of motion according to how the d1 and d2 functions
         are defined.
         Can depend on time, see StochasticSolverOptions help for format.
 
@@ -979,7 +979,7 @@ def photocurrent_sesolve(H, psi0, times, sc_ops=[], e_ops=[],
     sc_ops : list of :class:`qutip.Qobj`, or time dependent Qobjs.
         List of stochastic collapse operators. Each stochastic collapse
         operator will give a deterministic and stochastic contribution
-        to the eqaution of motion according to how the d1 and d2 functions
+        to the equation of motion according to how the d1 and d2 functions
         are defined.
         Can depend on time, see StochasticSolverOptions help for format.
 
@@ -1403,10 +1403,10 @@ def ssepdpsolve(H, psi0, times, c_ops, e_ops, **kwargs):
 
 
 # The code for smepdpsolve have been moved to the file pdpsolve.
-# The call is still in stochastic for consistance.
+# The call is still in stochastic for consistency.
 def smepdpsolve(H, rho0, times, c_ops, e_ops, **kwargs):
     """
-    A stochastic (piecewse deterministic process) PDP solver for density matrix
+    A stochastic (piecewise deterministic process) PDP solver for density matrix
     evolution.
 
     Parameters
@@ -1428,7 +1428,7 @@ def smepdpsolve(H, rho0, times, c_ops, e_ops, **kwargs):
     sc_ops : list of :class:`qutip.Qobj`
         List of stochastic collapse operators. Each stochastic collapse
         operator will give a deterministic and stochastic contribution
-        to the eqaution of motion according to how the d1 and d2 functions
+        to the equation of motion according to how the d1 and d2 functions
         are defined.
 
     e_ops : list of :class:`qutip.Qobj` / callback function single

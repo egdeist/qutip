@@ -97,7 +97,7 @@ def three_level_ops():
     # Note that the three level operators are different
     # from the qutrit operators. A three level atom only
     # has transitions 1 <-> 2 <-> 3, so we define the
-    # operators seperately from the qutrit code
+    # operators separately from the qutrit code
     sig11 = one * one.dag()
     sig22 = two * two.dag()
     sig33 = three * three.dag()
